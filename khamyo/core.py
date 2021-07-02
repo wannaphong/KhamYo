@@ -17,7 +17,7 @@ with open(path_file, encoding='utf-8') as fh:
     worddict = json.load(fh)
 
 list_th = list(worddict.keys())
-tokenizer = Tokenizer(list_th, engine='mm')
+tokenizer = Tokenizer(list_th, engine='mm', keep_whitespace="False")
 
 
 def merge(l: list) -> list:
@@ -46,7 +46,7 @@ def counts(l: list) -> defaultdict:
 
 
 def replace(sentence: str, top_k: int = 2) -> list:
-  sent_words = merge(tokenizer.word_tokenize(sentence))
+  sent_words = tokenizer.word_tokenize(sentence)
   c = counts(sent_words)
   if c == {}:
     return [(sentence,None)]
