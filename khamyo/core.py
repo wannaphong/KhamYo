@@ -63,13 +63,16 @@ def replace(sentence: str, top_k: int = 2) -> list:
         sent_words[i] = worddict[w][0]
   sum_m = list(itertools.product(*list_temp))
   list_sent = []
+  sentence_embedding = model.encode(sentence, convert_to_tensor=True)
   for i,v in enumerate(sum_m):
     _t = copy.copy(sent_words)
     for j,w in enumerate(v):
       _t[list_index[j]] = w
     list_sent.append(''.join(_t))
+  if len(sum_m) == 1:
+      s2 = model.encode(list_sent[0], convert_to_tensor=True)
+      return [(list_sent[0],util.pytorch_cos_sim(sentence_embedding,s2))]
   corpus_embeddings = model.encode(list_sent, convert_to_tensor=True)
-  sentence_embedding = model.encode(sentence, convert_to_tensor=True)
   cos_scores = util.pytorch_cos_sim(sentence_embedding, corpus_embeddings)[0]
   top_results = np.argpartition(-cos_scores, range(top_k))[0:top_k]
   return [(list_sent[i], cos_scores[i]) for i in top_results[0:top_k].tolist()]
