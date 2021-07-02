@@ -1,2 +1,2 @@
-# KkamYo : คำย่อ
+# KhamYo : คำย่อ
 Thai abbreviation to full text tool
