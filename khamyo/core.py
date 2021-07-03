@@ -7,6 +7,7 @@ from collections import defaultdict
 from sentence_transformers import SentenceTransformer, util
 import numpy as np
 from pythainlp.tokenize import Tokenizer
+from pythainlp.corpus import thai_words
 from khamyo import __file__ as khamyo_file
 
 path_file = os.path.join(os.path.dirname(khamyo_file),'data.json')
@@ -17,7 +18,7 @@ with open(path_file, encoding='utf-8') as fh:
     worddict = json.load(fh)
 
 list_th = list(worddict.keys())
-tokenizer = Tokenizer(list_th, engine='mm', keep_whitespace="False")
+tokenizer = Tokenizer(list_th+list(thai_words()), engine='newmm', keep_whitespace="False")
 
 
 def merge(l: list) -> list:
