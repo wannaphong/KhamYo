@@ -7,7 +7,7 @@ Thai abbreviation to full text tool
 
 ## How to use
 
-just call replace funtion and use it!!!
+just call replace function and use it!!!
 
 ```python
 from khamyo import replace
