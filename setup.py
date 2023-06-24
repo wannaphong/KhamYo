@@ -2,9 +2,10 @@
 from setuptools import find_packages, setup
 
 requirements = [
-    "pythainlp>=2.2",
+    "pythainlp>=4.0",
     "sentence-transformers",
-    "transformers"
+    "transformers",
+    "sentencepiece"
 ]
 
 with open('README.md','r',encoding='utf-8-sig') as f:
@@ -12,7 +13,7 @@ with open('README.md','r',encoding='utf-8-sig') as f:
 
 setup(
     name="KhamYo",
-    version="0.1.1",
+    version="0.2.0",
     description="Thai abbreviation to full text library",
     long_description=readme,
     long_description_content_type="text/markdown",
