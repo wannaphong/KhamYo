@@ -12,13 +12,13 @@ from khamyo import __file__ as khamyo_file
 
 path_file = os.path.join(os.path.dirname(khamyo_file),'data.json')
 
-model = SentenceTransformer('airesearch/wangchanberta-base-att-spm-uncased')
+model = SentenceTransformer('kornwtp/ConGen-WangchanBERT-Small')
 
 with open(path_file, encoding='utf-8') as fh:
     worddict = json.load(fh)
 
 list_th = list(worddict.keys())
-tokenizer = Tokenizer(list_th+list(thai_words()), engine='newmm', keep_whitespace="False")
+tokenizer = Tokenizer(list_th+list(thai_words()), engine='newmm')
 
 
 def merge(l: list) -> list:
