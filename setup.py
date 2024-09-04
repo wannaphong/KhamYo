@@ -13,7 +13,7 @@ with open('README.md','r',encoding='utf-8-sig') as f:
 
 setup(
     name="KhamYo",
-    version="0.2.0",
+    version="0.3.0",
     description="Thai abbreviation to full text library",
     long_description=readme,
     long_description_content_type="text/markdown",
